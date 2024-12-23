@@ -4,7 +4,7 @@
 
 #### 1. [Многопоточность](https://github.com/NewStudentOk/HWmap/tree/main/Less_1).
 #### 2. [Конкуренция, состояние гонки. Race condition](https://github.com/NewStudentOk/HWmap/tree/main/Less_2).
-#### 3. [Асинхронное программирование](03).
+#### 3. [Асинхронное программирование](https://github.com/NewStudentOk/HWmap/tree/main/Less_3).
 #### 4. [Рефакторинг](04).
 #### 5. [Упаковка приложения в контейнер](05).
 
