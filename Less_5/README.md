@@ -35,8 +35,18 @@
 
 <h2 align="center">Сборка образа</h2>
 
+Для сборки с компилятором gcc команды выполнять из папки /src_gcc
+
 ```docker build -t fig_side:v1 .```
 
 <h2 align="center">Запуск контейнера</h2>
 
 ```docker run --name fig_side -it fig_side:v1```
+
+Для сборки с компилятором clang команды выполнять из папки /src_clang
+
+```docker build -t fig_side_clang:v1 .```
+
+<h2 align="center">Запуск контейнера</h2>
+
+```docker run --name fig_side_clang -it fig_side:v1```

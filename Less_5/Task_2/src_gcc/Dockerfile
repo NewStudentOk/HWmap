@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:latest
 RUN apt update && apt install -y g++ mc
 WORKDIR  /app
 COPY ./main.cpp .
