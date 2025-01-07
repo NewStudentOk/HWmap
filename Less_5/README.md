@@ -45,6 +45,8 @@
 
 Для сборки с компилятором clang команды выполнять из папки /src_clang
 
+<h2 align="center">Сборка образа</h2>
+
 ```docker build -t fig_side_clang:v1 .```
 
 <h2 align="center">Запуск контейнера</h2>
