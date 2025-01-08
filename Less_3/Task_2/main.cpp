@@ -3,28 +3,29 @@
 #include <vector>
 #include <algorithm>
 
-void add(int& val)
+template<typename T>
+void add(T& val)
 {
     val++;
 }
 
-template<typename Iterator>
-void parallel_for_each(Iterator first, Iterator last)
+template<typename Iterator, typename Func>
+void parallel_for_each(Iterator first, Iterator last, Func f)
 {
     auto length = std::distance(first, last);
     unsigned long const max_chunk_size = 2;
 
     if (length <= max_chunk_size)
     {
-        std::for_each(first, last, add);
+        std::for_each(first, last, f);
     }
     else
     {
         Iterator mid_point = first;
         std::advance(mid_point, length / 2);
 
-        auto res = std::async(parallel_for_each<Iterator>, first, mid_point);
-        parallel_for_each(mid_point, last);
+        auto res = std::async(parallel_for_each<Iterator, Func>, first, mid_point, f);
+        parallel_for_each(mid_point, last, f);
 
         res.get();
     }
@@ -45,7 +46,7 @@ int main()
     std::cout << "Before: ";
     print_vector(v);
 
-    parallel_for_each(v.begin(), v.end());
+    parallel_for_each(v.begin(), v.end(), add<int>); // Передаем функцию в качестве аргумента
 
     std::cout << "After: ";
     print_vector(v);
